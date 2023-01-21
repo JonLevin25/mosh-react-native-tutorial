@@ -1,41 +1,46 @@
 import React, {} from 'react';
-import {Image, View, Text, } from 'react-native';
+import {Image, View, Text, StyleSheet, ImageBackground, } from 'react-native';
 
 export default function ViewImageScreen(props: any) {
-    // flex 1, 3, 1
-    // Flex: 1 
-    return <View style={{
-      backgroundColor:"#000",
-      height: "100%",
-      width: "100%",
-      justifyContent: "center"
-    }}>
-      <View style={{
-        flex: 1, // Top part
-        flexDirection: "row",
-        justifyContent: "space-between"
-      }}>
-        <View style={{
-          backgroundColor: "tomato",
-          width: 50,
-          height: 50,
-          left: 20
-        }}/>
-        <View style={{
-          backgroundColor: "dodgerblue",
-          width: 50,
-          height: 50,
-          right: 20
-        }}/>
-      </View>
-        <Image source={require('../assets/chair.jpg')}
-        style={{
-          flex: 3,
-          width: "100%",
-          resizeMode: "cover",
-        }}/>
-        <View style={{flex: 1}}/>
-  
+  return (
+    <View style={styles.container}>
+      <Image style={styles.background} resizeMode="contain" source={require("../assets/chair.jpg")}/>
+      <View style={styles.closeBtn}/>
+      <View style={styles.deleteBtn}/>
     </View>
-      
+  );
   }
+
+  const genericStyles = StyleSheet.create({
+    btn: {
+      width: 50,
+      height: 50,
+      top: 40,
+      position: 'absolute',
+    }
+  });
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: "#000",
+      width: "100%",
+    },
+    background: {
+      // flex: 3,
+      width: "100%",
+      height: "100%",
+      // backgroundColor: "green",
+    },
+    closeBtn: {
+      ...genericStyles.btn,
+      backgroundColor: "#fc5c65",
+      left: 15,
+    },
+    deleteBtn: {
+      ...genericStyles.btn,
+      backgroundColor: "#4ecdc4",
+      right: 15,
+    },
+
+  })

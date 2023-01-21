@@ -1,6 +1,6 @@
 import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import React, { Component, useState } from 'react';
-import PhotoScreen from './app/screens/PhotoScreen';
+import ViewImageScreen from './app/screens/ViewImageScreen';
 import WelcomeScreen from './app/screens/WelcomeScreen';
 
 import {
@@ -17,8 +17,8 @@ export default function App() {
   const { landscape } = useDeviceOrientation();
   return (
     <SafeAreaView style={styles.container}>
-      <WelcomeScreen/>
-      {/* <PhotoScreen/> */}
+      {/* <WelcomeScreen/> */}
+      <ViewImageScreen/>
     </SafeAreaView>
   );
 }

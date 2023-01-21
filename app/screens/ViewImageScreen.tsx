@@ -1,7 +1,7 @@
 import React, {} from 'react';
 import {Image, View, Text, } from 'react-native';
 
-export default function PhotoScreen(props: any) {
+export default function ViewImageScreen(props: any) {
     // flex 1, 3, 1
     // Flex: 1 
     return <View style={{

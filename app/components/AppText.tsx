@@ -4,9 +4,9 @@ import React from "react";
 import { TextStyles } from "../AppStyles";
 
 function AppText(props: TextProps) {
-  const { style, children, ...otherProps } = props;
+  const { style: userStyle, children, ...otherProps } = props;
   return (
-    <Text {...otherProps} style={[TextStyles.AppText, style]}>
+    <Text {...otherProps} style={[TextStyles.AppText, userStyle]}>
       {children}
     </Text>
   );

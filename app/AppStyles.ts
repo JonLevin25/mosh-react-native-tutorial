@@ -7,11 +7,25 @@ export const AppColors = {
   black: "#000",
 };
 
+const textGeneric = {
+  fontFamily: "Roboto",
+};
+
 export const TextStyles = StyleSheet.create({
   AppText: {
-    fontFamily: "Roboto",
+    ...textGeneric,
     color: AppColors.white,
+    fontSize: 18,
+    fontWeight: "700",
+  },
+  Subtitle: {
+    // used below logo, etc.
+    ...textGeneric,
+    color: AppColors.black,
     fontSize: 20,
     fontWeight: "700",
+    padding: 10,
+
+    textShadowRadius: 1,
   },
 });

@@ -10,11 +10,15 @@ import {
 } from "react-native";
 
 import { AppColors } from "../AppStyles";
+import AppText from "./AppText";
 
 function WideButton(
-  props: TouchableHighlightProps & { color?: keyof typeof AppColors }
+  props: TouchableHighlightProps & {
+    text?: string;
+    color?: keyof typeof AppColors;
+  }
 ) {
-  const { style: userStyle, color, children, ...otherProps } = props;
+  const { style: userStyle, color, text, children, ...otherProps } = props;
 
   let userColorStyle;
   if (color && color in AppColors) {
@@ -23,12 +27,19 @@ function WideButton(
   //   const allStyles =
   //     style != null ? [styles.buttonContainer, style] : styles.buttonContainer;
 
+  const textComponent = text ? (
+    <AppText style={styles.buttonText}>{text}</AppText>
+  ) : null;
+
   return (
     <TouchableHighlight
       {...otherProps}
       style={[styles.buttonContainer, userStyle, userColorStyle]}
     >
-      <View>{children}</View>
+      <View>
+        {textComponent}
+        {children}
+      </View>
     </TouchableHighlight>
   );
 }
@@ -41,6 +52,9 @@ const styles = StyleSheet.create({
     backgroundColor: AppColors.primary,
     justifyContent: "center",
     alignItems: "center",
+  },
+  buttonText: {
+    textTransform: "uppercase",
   },
 });
 

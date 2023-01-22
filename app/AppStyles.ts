@@ -8,5 +8,10 @@ export const AppColors = {
 };
 
 export const TextStyles = StyleSheet.create({
-  AppText: { fontFamily: "Roboto", color: AppColors.white, fontSize: 24 },
+  AppText: {
+    fontFamily: "Roboto",
+    color: AppColors.white,
+    fontSize: 20,
+    fontWeight: "700",
+  },
 });

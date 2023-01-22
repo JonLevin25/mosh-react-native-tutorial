@@ -18,7 +18,7 @@ function WelcomeScreen(props: any) {
       <ImageBackground
         style={styles.background}
         blurRadius={5}
-        source={require("../assets/background.jpg")}
+        source={require("../assets/exercise_1/background.jpg")}
       >
         {/* <View style={styles.contentContainer}/> */}
         <WideButton
@@ -37,7 +37,7 @@ function WelcomeScreen(props: any) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logoImg}
-            source={require("../assets/logo-red.png")}
+            source={require("../assets/exercise_1/logo-red.png")}
           />
           <Text style={styles.logoTxt}>Sell what you don't need!</Text>
         </View>

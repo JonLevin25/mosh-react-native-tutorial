@@ -11,13 +11,23 @@ import {
 
 import { AppColors } from "../AppStyles";
 
-function WideButton(props: TouchableHighlightProps) {
-  const { style, children, ...otherProps } = props;
+function WideButton(
+  props: TouchableHighlightProps & { color?: keyof typeof AppColors }
+) {
+  const { style: userStyle, color, children, ...otherProps } = props;
+
+  let userColorStyle;
+  if (color && color in AppColors) {
+    userColorStyle = { backgroundColor: AppColors[color] };
+  }
   //   const allStyles =
   //     style != null ? [styles.buttonContainer, style] : styles.buttonContainer;
 
   return (
-    <TouchableHighlight {...otherProps} style={[styles.buttonContainer, style]}>
+    <TouchableHighlight
+      {...otherProps}
+      style={[styles.buttonContainer, userStyle, userColorStyle]}
+    >
       <View>{children}</View>
     </TouchableHighlight>
   );

@@ -13,7 +13,7 @@ export default function App() {
         justifyContent: "center",
       }}
     >
-      <WideButton onPress={() => console.log("")}>
+      <WideButton color="primary" onPress={() => console.log("")}>
         <AppText>Test</AppText>
       </WideButton>
       {/* <TouchableHighlight

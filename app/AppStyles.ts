@@ -12,6 +12,7 @@ const textGeneric = {
 };
 
 export const TextStyles = StyleSheet.create({
+  Generic: textGeneric,
   AppText: {
     ...textGeneric,
     color: AppColors.white,

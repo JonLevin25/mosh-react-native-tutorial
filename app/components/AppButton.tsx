@@ -27,15 +27,17 @@ function AppButton(
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: "100%",
-    height: 50,
-    borderRadius: 25,
-    pading: 15,
     backgroundColor: AppColors.primary,
+    borderRadius: 25,
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
+    padding: 15,
+    marginVertical: 10,
   },
   buttonText: {
+    color: AppColors.white,
+    fontSize: 18,
     textTransform: "uppercase",
   },
 });

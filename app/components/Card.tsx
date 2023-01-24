@@ -35,20 +35,26 @@ function Card(props: CardProps) {
 
 const styles = StyleSheet.create({
   container: {
-    width: "90%",
-    height: 250,
-    margin: 20,
-    borderRadius: 20,
+    // height: 250,
+    width: "100%",
+    // paddingHorizontal: 25,
+    // paddingVertical: 10,
+    borderRadius: 15,
+    marginBottom: 20,
+    // marginHorizontal: 50,
+    // alignItems: "center",
+    // justifyContent: "center",
     overflow: "hidden",
+    backgroundColor: "tomato",
   },
   image: {
-    flex: 2.5,
-    // height: 200,
+    // flex: 2.5,
+    height: 200,
     width: "100%",
     resizeMode: "cover",
   },
   textPane: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: AppColors.white,
     width: "100%",
     paddingHorizontal: 20,
@@ -58,6 +64,7 @@ const styles = StyleSheet.create({
   title: {
     color: AppColors.black,
     fontSize: 17,
+    marginBottom: 7,
     fontWeight: "normal",
   },
   subTitle: {

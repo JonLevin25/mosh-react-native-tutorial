@@ -20,20 +20,6 @@ function WelcomeScreen(props: any) {
         blurRadius={5}
         source={require("../assets/exercise_1/background.jpg")}
       >
-        {/* <View style={styles.contentContainer}/> */}
-        <AppButton
-          text="Login"
-          color="primary"
-          onPress={onLoginPress}
-          style={styles.button}
-        />
-        <AppButton
-          text="Register"
-          color="secondary"
-          onPress={onRegisterPress}
-          style={styles.button}
-        />
-        <View style={styles.bottomBuffer} />
         <View style={styles.logoContainer}>
           <Image
             style={styles.logoImg}
@@ -43,6 +29,15 @@ function WelcomeScreen(props: any) {
             Sell what you don't need!
           </AppText>
         </View>
+        <View style={styles.buttonsContainer}>
+          <AppButton text="Login" color="primary" onPress={onLoginPress} />
+          <AppButton
+            text="Register"
+            color="secondary"
+            onPress={onRegisterPress}
+          />
+        </View>
+        <View style={styles.bottomBuffer} />
       </ImageBackground>
     </>
   );
@@ -51,11 +46,13 @@ function WelcomeScreen(props: any) {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    width: "100%",
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  button: { margin: 10 },
+  buttonsContainer: {
+    width: "100%",
+    padding: 20,
+  },
   bottomBuffer: { margin: 10 },
   logoImg: {
     width: 100,

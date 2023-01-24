@@ -1,10 +1,6 @@
 import React from "react";
 import {
-  ButtonProps,
   StyleSheet,
-  Button,
-  View,
-  ViewStyle,
   TouchableHighlight,
   TouchableHighlightProps,
 } from "react-native";
@@ -12,35 +8,29 @@ import {
 import { AppColors, appBackgroundColor } from "../AppStyles";
 import AppText from "./AppText";
 
-function WideButton(
+function AppButton(
   props: TouchableHighlightProps & {
     text?: string;
     color?: keyof typeof AppColors;
   }
 ) {
-  const { style: userStyle, color, text, children, ...otherProps } = props;
-  const textComponent = text ? (
-    <AppText style={styles.buttonText}>{text}</AppText>
-  ) : null;
-
+  const { style: userStyle, color, text, ...otherProps } = props;
   return (
     <TouchableHighlight
       {...otherProps}
       style={[styles.buttonContainer, userStyle, appBackgroundColor(color)]}
     >
-      <View>
-        {textComponent}
-        {children}
-      </View>
+      <AppText style={styles.buttonText}>{text}</AppText>
     </TouchableHighlight>
   );
 }
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: "90%",
+    width: "100%",
     height: 50,
-    borderRadius: 100,
+    borderRadius: 25,
+    pading: 15,
     backgroundColor: AppColors.primary,
     justifyContent: "center",
     alignItems: "center",
@@ -50,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WideButton;
+export default AppButton;

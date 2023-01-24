@@ -11,7 +11,7 @@ import { AppColors } from "./app/AppStyles";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import AppText from "./app/components/AppText";
-import WideButton from "./app/components/WideButton";
+import AppButton from "./app/components/AppButton";
 
 import Card from "./app/components/Card";
 
@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-    return <WelcomeScreen />;
+  return <WelcomeScreen />;
   // return <TestCardScreen />;
 }

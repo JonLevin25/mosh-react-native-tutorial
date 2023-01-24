@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet, View, ImageBackground, Image } from "react-native";
 import { TextStyles } from "../AppStyles";
 import AppText from "../components/AppText";
-import WideButton from "../components/WideButton";
+import AppButton from "../components/AppButton";
 
 const onLoginPress = () => {
   console.log("Login press!");
@@ -21,13 +21,13 @@ function WelcomeScreen(props: any) {
         source={require("../assets/exercise_1/background.jpg")}
       >
         {/* <View style={styles.contentContainer}/> */}
-        <WideButton
+        <AppButton
           text="Login"
           color="primary"
           onPress={onLoginPress}
           style={styles.button}
         />
-        <WideButton
+        <AppButton
           text="Register"
           color="secondary"
           onPress={onRegisterPress}

@@ -22,8 +22,12 @@ function Card(props: CardProps) {
     <View style={styles.container}>
       <Image source={props.image} style={styles.image} />
       <View style={styles.textPane}>
-        <Text style={styles.title}>{props.title}</Text>
-        <Text style={styles.subTitle}>{props.subTitle}</Text>
+        <AppText color="black" style={styles.title}>
+          {props.title}
+        </AppText>
+        <AppText color="secondary" style={styles.subTitle}>
+          {props.subTitle}
+        </AppText>
       </View>
     </View>
   );
@@ -52,15 +56,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   title: {
-    ...TextStyles.Generic,
     color: AppColors.black,
     fontSize: 17,
     fontWeight: "normal",
   },
   subTitle: {
-    ...TextStyles.Generic,
     fontSize: 16,
-    color: "#74cac3",
     fontWeight: "bold",
   },
 });

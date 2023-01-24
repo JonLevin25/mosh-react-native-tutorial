@@ -39,7 +39,9 @@ function WelcomeScreen(props: any) {
             style={styles.logoImg}
             source={require("../assets/exercise_1/logo-red.png")}
           />
-          <Text style={styles.logoTxt}>Sell what you don't need!</Text>
+          <AppText color="black" style={styles.taglineTxt}>
+            Sell what you don't need!
+          </AppText>
         </View>
       </ImageBackground>
     </>
@@ -55,13 +57,15 @@ const styles = StyleSheet.create({
   },
   button: { margin: 10 },
   bottomBuffer: { margin: 10 },
-
   logoImg: {
     width: 100,
     height: 100,
   },
-  logoTxt: {
-    ...TextStyles.Subtitle,
+  taglineTxt: {
+    fontSize: 25,
+    fontWeight: "700",
+    padding: 10,
+    textShadowRadius: 1,
   },
   logoContainer: {
     top: 50,

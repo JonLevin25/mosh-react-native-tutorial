@@ -38,8 +38,7 @@ function WideButton(
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: "100%",
-    padding: 10,
+    width: "90%",
     height: 50,
     borderRadius: 100,
     backgroundColor: AppColors.primary,

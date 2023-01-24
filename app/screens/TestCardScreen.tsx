@@ -2,6 +2,7 @@ import React from "react";
 import { View } from "react-native";
 
 import Card from "../components/Card";
+import { itemJacket } from "../data/mockData";
 
 export default function TestCardScreen(props: any) {
   return (
@@ -14,11 +15,7 @@ export default function TestCardScreen(props: any) {
         // justifyContent: "center",
       }}
     >
-      <Card
-        title="Red jacket for sale!"
-        subTitle="$100"
-        image={require("../assets/exercise_2/jacket.jpg")}
-      />
+      <Card item={itemJacket} />
     </View>
   );
 }

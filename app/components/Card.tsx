@@ -10,23 +10,22 @@ import React from "react";
 import { useDimensions } from "@react-native-community/hooks";
 import AppText from "./AppText";
 import { AppColors, TextStyles } from "../AppStyles";
+import { ItemData } from "../data/ItemData";
 
 type CardProps = {
-  title: string;
-  subTitle: string;
-  image: ImageSourcePropType;
+  item: ItemData;
 };
 
-function Card(props: CardProps) {
+function Card({ item }: CardProps) {
   return (
     <View style={styles.container}>
-      <Image source={props.image} style={styles.image} />
+      <Image source={item.image} style={styles.image} />
       <View style={styles.textPane}>
         <AppText color="black" style={styles.title}>
-          {props.title}
+          {item.title}
         </AppText>
         <AppText color="secondary" style={styles.subTitle}>
-          {props.subTitle}
+          {item.subTitle}
         </AppText>
       </View>
     </View>

@@ -1,12 +1,12 @@
 import { StyleSheet, Text, TextProps } from "react-native";
 
 import React from "react";
-import { TextStyles } from "../AppStyles";
+import { AppColors, appTextColor, TextStyles } from "../AppStyles";
 
-function AppText(props: TextProps) {
-  const { style: userStyle, children, ...otherProps } = props;
+function AppText(props: TextProps & {color: keyof typeof AppColors}) {
+  const { style: userStyle, color, children, ...otherProps } = props;
   return (
-    <Text {...otherProps} style={[TextStyles.AppText, userStyle]}>
+    <Text {...otherProps} style={[TextStyles.AppText, userStyle, appTextColor(color)]}>
       {children}
     </Text>
   );

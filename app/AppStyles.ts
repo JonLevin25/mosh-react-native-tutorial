@@ -7,8 +7,32 @@ export const AppColors = {
   black: "#000",
 };
 
+type MaybeAppColor = keyof typeof AppColors | undefined;
+
+
+export function appBackgroundColor(bgColor: MaybeAppColor)
+{
+    if (bgColor == null) return {};
+    return { backgroundColor: AppColors[bgColor] };
+}
+
+export function appTextColor(textColor: MaybeAppColor)
+{
+  if (textColor == null) return {};
+  return { color: AppColors[textColor] };
+}
+
+export function resolveTextColor(bgColor: keyof typeof AppColors): { color?: string }
+{
+  if (bgColor && bgColor in AppColors) {
+    return { color: AppColors[bgColor] };
+  }
+
+  return {};
+}
+
 const textGeneric = {
-  fontFamily: "Roboto",
+  // fontFamily: "Roboto",
 };
 
 export const TextStyles = StyleSheet.create({
@@ -23,7 +47,7 @@ export const TextStyles = StyleSheet.create({
     // used below logo, etc.
     ...textGeneric,
     color: AppColors.black,
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "700",
     padding: 10,
 

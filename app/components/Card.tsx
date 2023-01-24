@@ -17,7 +17,6 @@ type CardProps = {
   image: ImageSourcePropType;
 };
 
-const borderRadius = 10;
 function Card(props: CardProps) {
   return (
     <View style={styles.container}>
@@ -35,23 +34,19 @@ const styles = StyleSheet.create({
     width: "90%",
     height: 250,
     margin: 20,
+    borderRadius: 20,
+    overflow: "hidden",
   },
   image: {
-    // flex: 2.5,
-    height: 200,
+    flex: 2.5,
+    // height: 200,
     width: "100%",
     resizeMode: "cover",
-    // opacity: 0.2,
-    // backgroundColor: "green",
-    borderTopLeftRadius: borderRadius,
-    borderTopRightRadius: borderRadius,
   },
   textPane: {
-    // flex: 1,
+    flex: 1,
     backgroundColor: AppColors.white,
     width: "100%",
-    borderBottomLeftRadius: borderRadius,
-    borderBottomRightRadius: borderRadius,
     paddingHorizontal: 20,
     paddingVertical: 10,
     justifyContent: "space-evenly",
@@ -59,7 +54,6 @@ const styles = StyleSheet.create({
   title: {
     ...TextStyles.Generic,
     color: AppColors.black,
-    backgroundColor: "tomato",
     fontSize: 17,
     fontWeight: "normal",
   },

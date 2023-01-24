@@ -51,6 +51,6 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-  //   return <WelcomeScreen />;
-  return <TestCardScreen />;
+    return <WelcomeScreen />;
+  // return <TestCardScreen />;
 }

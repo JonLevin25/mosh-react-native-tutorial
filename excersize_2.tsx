@@ -10,33 +10,17 @@ import {
 import { AppColors } from "./app/AppStyles";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
-import AppText from "./app/components/AppText";
-import AppButton from "./app/components/AppButton";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 
 import Card from "./app/components/Card";
+import AppText from "./app/components/AppText";
+import AppButton from "./app/components/AppButton";
+import TestCardScreen from "./app/screens/TestCardScreen";
 
-const borderRadius = 10;
-function TestCardScreen(props: any) {
-  return (
-    <View
-      style={{
-        backgroundColor: "#f8f4f4",
-        paddingTop: 100,
-        padding: 30,
-        // alignItems: "center",
-        // justifyContent: "center",
-      }}
-    >
-      <Card
-        title="Red jacket for sale!"
-        subTitle="$100"
-        image={require("./app/assets/exercise_2/jacket.jpg")}
-      />
-    </View>
-  );
-}
+import { itemJacket, listingJacket, userMosh } from "./app/data/mockData";
 
 export default function App() {
   // return <WelcomeScreen />;
-  return <TestCardScreen />;
+  // return <TestCardScreen />;
+  return <ListingDetailsScreen listing={listingJacket} />;
 }

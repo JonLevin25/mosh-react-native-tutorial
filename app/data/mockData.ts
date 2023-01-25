@@ -1,5 +1,6 @@
 import { createItemData, ItemData } from "./ItemData";
 import { ListingData } from "./ListingData";
+import { MessageData } from "./MessageData";
 import { UserData } from "./UserData";
 
 export const userMosh: UserData = {
@@ -17,3 +18,18 @@ export const listingJacket: ListingData = {
   user: userMosh,
   item: itemJacket,
 };
+
+export const messagesData: MessageData[] = [
+  {
+    id: '1',
+    title: 'T1',
+    description: 'D1',
+    image: require('../assets/exercise_2/mosh.jpg'),
+  },
+  {
+    id: '2',
+    title: 'T2',
+    description: 'D2',
+    image: require('../assets/exercise_2/mosh.jpg'),
+  }
+];

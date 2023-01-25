@@ -10,13 +10,13 @@ import { UserData } from "../data/UserData";
 
 import AppText from "./AppText";
 
-type UserListingsProp = {
+type ListItemProps = {
   image: ImageSourcePropType;
   title: string;
   subtitle: string;
 };
 
-function UserListingsWidget({ image, title, subtitle }: UserListingsProp) {
+function ListItem({ image, title, subtitle }: ListItemProps) {
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={image} />
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
   title: { fontSize: 20, fontWeight: "500" },
   subTitle: { fontSize: 18, fontWeight: "500" },
 });
-export default UserListingsWidget;
+export default ListItem;

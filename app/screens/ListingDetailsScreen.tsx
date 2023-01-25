@@ -12,7 +12,7 @@ import { ListingData as ItemData, ListingData } from "../data/ListingData";
 import { UserData } from "../data/UserData";
 import { userMosh } from "../data/mockData";
 
-import UserListingsWidget from "../components/UserListingsWidget";
+import ListItem from "../components/ListItem";
 
 type ListingProps = {
   listing: ListingData;
@@ -20,7 +20,7 @@ type ListingProps = {
 
 function ListingDetailsScreen({ listing: { user, item } }: ListingProps) {
   return (
-    <View style={styles.container}>
+    <View>
       <Image style={styles.image} source={item.image} />
       <View style={styles.detailsContainer}>
         <AppText color="black" style={styles.title}>
@@ -30,16 +30,24 @@ function ListingDetailsScreen({ listing: { user, item } }: ListingProps) {
           {item.getPriceStr()}
         </AppText>
       </View>
-      <UserListingsWidget user={userMosh} listingsCount={5} />
+      <View style={styles.userContainer}>
+        <ListItem
+          image={user.profileImage}
+          title={user.name}
+          subtitle="5 Listings"
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, width: "100%", backgroundColor: AppColors.white },
-  detailsContainer: { padding: 20, marginBottom: 20 },
+  detailsContainer: {
+    padding: 20,
+  },
   image: { width: "100%", height: 300 },
   title: { fontSize: 24, fontWeight: "500" },
+  userContainer: { marginVertical: 40 },
   price: { fontSize: 20, marginVertical: 10, fontWeight: "700" },
 });
 

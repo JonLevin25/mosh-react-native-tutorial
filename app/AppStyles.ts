@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 
 export const AppColors = {
+  black: "#000",
+  gray: "#848181",
   primary: "#fc5c65",
   secondary: "#4ecdc4",
   white: "#fff",
-  black: "#000",
 };
 
 type MaybeAppColor = keyof typeof AppColors | undefined;

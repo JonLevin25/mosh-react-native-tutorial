@@ -25,7 +25,7 @@ function Card({ item }: CardProps) {
           {item.title}
         </AppText>
         <AppText color="secondary" style={styles.subTitle}>
-          {item.subTitle}
+          {item.getPriceStr()}
         </AppText>
       </View>
     </View>

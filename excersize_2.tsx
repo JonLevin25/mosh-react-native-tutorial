@@ -14,9 +14,11 @@ import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import TestCardScreen from "./app/screens/TestCardScreen";
 
 import { itemJacket, listingJacket, userMosh } from "./app/data/mockData";
+import ViewImageScreen from "./app/screens/ViewImageScreen";
 
 export default function App() {
   // return <WelcomeScreen />;
   // return <TestCardScreen />;
-  return <ListingDetailsScreen listing={listingJacket} />;
+  return <ViewImageScreen />;
+  // return <ListingDetailsScreen listing={listingJacket} />;
 }

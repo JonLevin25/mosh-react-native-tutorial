@@ -17,23 +17,21 @@ import { itemJacket, listingJacket, userMosh, messagesData } from "./app/data/mo
 import ScreenContainer from "./app/screens/ScreenContainer";
 import ListItem from './app/components/ListItem';
 import { MessageData } from "./app/data/MessageData";
-
-const renderItem = ({item}: ListRenderItemInfo<MessageData>): React.ReactElement => {
-  const {title, description, image} = item;
-  return <ListItem title={title} subtitle={description} image={image}/>
-};
+import ListSeparator from "./app/components/ListSeparator";
 
 export default function App() {
-  // return <WelcomeScreen />;
-  // return <TestCardScreen />;
-  // return <ViewImageScreen />;
-  // return <ListingDetailsScreen listing={listingJacket} />;
+  
   return <ScreenContainer>
+    {/* <WelcomeScreen />; */}
+    {/* <TestCardScreen />; */}
+    {/* <ViewImageScreen />; */}
+    {/* <ListingDetailsScreen listing={listingJacket} />; */}
     <FlatList
     data={messagesData}
-    renderItem={renderItem}
+    renderItem={({item}) => 
+      <ListItem title={item.title} subtitle={item.description} image={item.image}/>}
     keyExtractor={(item) => item.id}
-    >
+    ItemSeparatorComponent={() => <ListSeparator/>}>
     </FlatList>
   </ScreenContainer>
 }

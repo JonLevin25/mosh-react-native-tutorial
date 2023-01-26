@@ -5,6 +5,8 @@ import {
   Image,
   ImagePropsBase,
   ImageSourcePropType,
+  TouchableHighlight,
+  TouchableOpacity,
 } from "react-native";
 import { UserData } from "../data/UserData";
 
@@ -14,11 +16,15 @@ type ListItemProps = {
   image: ImageSourcePropType;
   title: string;
   subtitle: string;
+  onPress?: (x: ListItemProps) => void;
 };
 
-function ListItem({ image, title, subtitle }: ListItemProps) {
+function ListItem<T>(props: ListItemProps) {
+  const { image, title, subtitle} = props;
+  const onPress: (x: ListItemProps) => void = props.onPress ?? (p) => void;
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => onPress(props)}>
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <AppText color="black" style={styles.title}>
@@ -28,7 +34,7 @@ function ListItem({ image, title, subtitle }: ListItemProps) {
           {subtitle}
         </AppText>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 

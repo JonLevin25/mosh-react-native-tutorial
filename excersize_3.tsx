@@ -29,9 +29,12 @@ export default function App() {
     <FlatList
     data={messagesData}
     renderItem={({item}) => 
-      <ListItem title={item.title} subtitle={item.description} image={item.image}/>}
+      (<ListItem
+        renderRightActions={() => <View style={{backgroundColor:"tomato", width: 70}}/>}
+        onPress={() => console.log(`onPress ${item}`)}
+      title={item.title} subtitle={item.description} image={item.image}/>)}
     keyExtractor={(item) => item.id}
-    ItemSeparatorComponent={() => <ListSeparator/>}>
+    ItemSeparatorComponent={() => <ListSeparator/>}>)
     </FlatList>
   </ScreenContainer>
 }

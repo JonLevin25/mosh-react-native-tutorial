@@ -8,6 +8,8 @@ import {
   TouchableHighlight,
   TouchableOpacity,
 } from "react-native";
+import { Swipeable } from "react-native-gesture-handler";
+import { AppColors } from "../AppStyles";
 import { UserData } from "../data/UserData";
 
 import AppText from "./AppText";
@@ -16,15 +18,18 @@ type ListItemProps = {
   image: ImageSourcePropType;
   title: string;
   subtitle: string;
-  onPress?: (x: ListItemProps) => void;
+  onPress?: () => void;
+  renderRightActions?: ((progressAnimatedValue: any, dragAnimatedValue: any, swipeable: Swipeable) => React.ReactNode) | undefined;
 };
 
 function ListItem<T>(props: ListItemProps) {
-  const { image, title, subtitle} = props;
-  const onPress: (x: ListItemProps) => void = props.onPress ?? (p) => void;
+  const { image, title, subtitle, renderRightActions} = props;
+  const onPress = props.onPress; 
 
   return (
-    <TouchableOpacity style={styles.container} onPress={() => onPress(props)}>
+    <Swipeable renderRightActions={renderRightActions}>
+        <TouchableHighlight style={styles.container} onPress={onPress} underlayColor={AppColors.light}>
+      <>
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <AppText color="black" style={styles.title}>
@@ -34,7 +39,9 @@ function ListItem<T>(props: ListItemProps) {
           {subtitle}
         </AppText>
       </View>
-    </TouchableOpacity>
+    </>
+    </TouchableHighlight>
+    </Swipeable>
   );
 }
 

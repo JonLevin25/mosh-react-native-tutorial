@@ -8,6 +8,7 @@ export const AppColors = {
   primary: "#fc5c65",
   secondary: "#4ecdc4",
   white: "#fff",
+  danger: "#ff5252",
 };
 
 type MaybeAppColor = keyof typeof AppColors | undefined;

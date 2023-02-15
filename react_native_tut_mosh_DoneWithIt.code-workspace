@@ -7,7 +7,9 @@
   "settings": {},
   "extensions": {
     "recommendations": [
-      "menelaia.react-native-dev-snippets"
+      "msjsdiag.vscode-react-native",
+      "esbenp.prettier-vscode",
+      "equimper.react-native-react-redux"
     ]
   }
 }

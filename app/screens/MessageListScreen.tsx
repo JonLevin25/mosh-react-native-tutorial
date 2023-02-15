@@ -7,12 +7,22 @@ const styles = StyleSheet.create({});
 
 import { messagesData } from "../data/mockData";
 
-
 // flat list, uses messagesData
 
 function MessageListScreen() {
   return (
-    
+    <FlatList
+      data={messagesData}
+      keyExtractor={(msg) => msg.id} // must be string
+      renderItem={({ item }) => (
+        <ListItem
+          title={item.title}
+          subtitle={item.description}
+          image={item.image}
+          onPress={() => console.log(item)}
+        />
+      )}
+    ></FlatList>
   );
 }
 

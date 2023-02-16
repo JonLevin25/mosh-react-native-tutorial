@@ -22,6 +22,7 @@ function MessageListScreen() {
           onPress={() => console.log(item)}
         />
       )}
+      ItemSeparatorComponent={ListSeparator}
     ></FlatList>
   );
 }

@@ -19,28 +19,38 @@ type ListItemProps = {
   title: string;
   subtitle: string;
   onPress?: () => void;
-  renderRightActions?: ((progressAnimatedValue: any, dragAnimatedValue: any, swipeable: Swipeable) => React.ReactNode) | undefined;
+  renderRightActions?:
+    | ((
+        progressAnimatedValue: any,
+        dragAnimatedValue: any,
+        swipeable: Swipeable
+      ) => React.ReactNode)
+    | undefined;
 };
 
 function ListItem<T>(props: ListItemProps) {
-  const { image, title, subtitle, renderRightActions} = props;
-  const onPress = props.onPress; 
+  const { image, title, subtitle, renderRightActions } = props;
+  const onPress = props.onPress;
 
   return (
     <Swipeable renderRightActions={renderRightActions}>
-        <TouchableHighlight style={styles.container} onPress={onPress} underlayColor={AppColors.light}>
-      <>
-      <Image style={styles.image} source={image} />
-      <View style={styles.detailsContainer}>
-        <AppText color="black" style={styles.title}>
-          {title}
-        </AppText>
-        <AppText color="gray" style={styles.title}>
-          {subtitle}
-        </AppText>
-      </View>
-    </>
-    </TouchableHighlight>
+      <TouchableHighlight
+        style={styles.container}
+        onPress={onPress}
+        underlayColor={AppColors.light}
+      >
+        <>
+          <Image style={styles.image} source={image} />
+          <View style={styles.detailsContainer}>
+            <AppText color="black" style={styles.title}>
+              {title}
+            </AppText>
+            <AppText color="gray" style={styles.title}>
+              {subtitle}
+            </AppText>
+          </View>
+        </>
+      </TouchableHighlight>
     </Swipeable>
   );
 }
@@ -49,7 +59,7 @@ const imageSize = 70;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    marginHorizontal: 20,
+    paddingHorizontal: 20,
   },
   image: {
     height: imageSize,

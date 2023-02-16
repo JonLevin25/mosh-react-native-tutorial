@@ -1,6 +1,7 @@
 import React from "react";
 import {
   StyleSheet,
+  Animated,
   View,
   Image,
   ImagePropsBase,
@@ -21,8 +22,8 @@ type ListItemProps = {
   onPress?: () => void;
   renderRightActions?:
     | ((
-        progressAnimatedValue: any,
-        dragAnimatedValue: any,
+        progressAnimatedValue: Animated.AnimatedInterpolation<number>,
+        dragAnimatedValue: Animated.AnimatedInterpolation<number>,
         swipeable: Swipeable
       ) => React.ReactNode)
     | undefined;

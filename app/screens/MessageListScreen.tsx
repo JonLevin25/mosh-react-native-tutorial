@@ -1,35 +1,44 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  FlatList,
-  Button,
-  Animated,
-} from "react-native";
+import { StyleSheet, View, FlatList, Button, Animated } from "react-native";
 import ListItem from "../components/ListItem";
 import ListSeparator from "../components/ListSeparator";
 import AppText from "../components/AppText";
 
-import { messagesData } from "../data/mockData";
+import { mockMessages } from "../data/mockData";
 import { MessageData } from "../data/MessageData";
 import { Swipeable } from "react-native-gesture-handler";
 import { AppColors } from "../AppStyles";
 import AppButton from "../components/AppButton";
-import { DeleteWidget } from "./DeleteWidget";
-import {useState} from 'react';
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import { useState } from "react";
 // flat list, uses messagesData
 
 function MessageListScreen() {
-  const [messages, setMessages] = useState(messagesData);
-    const deleteMsg = (msg: MessageData) => {
-    console.log(`deleting msg title: ${msg.title}`);r
-    setMessages(messagesData.filter(m => m != msg));
+  const [messages, setMessages] = useState(mockMessages);
+  const [refreshing, setRefreshing] = useState(false);
+  const deleteMsg = (msg: MessageData) => {
+    console.log(`deleting msg title: ${msg.title}`);
+    const newMessages = messages.filter((m) => m.id != msg.id);
+    setMessages(newMessages);
+  };
+
+  const mockDataReceived = () => {
+    setMessages(mockMessages);
+    setRefreshing(false);
+  };
+
+  const refresh = () => {
+    console.log("refreshing!");
+    setRefreshing(true);
+    setTimeout(mockDataReceived, 1000);
   };
 
   return (
     <FlatList
       data={messages}
       keyExtractor={(msg) => msg.id} // must be string
+      refreshing={refreshing}
+      onRefresh={refresh}
       renderItem={({ item }) => (
         <ListItem
           title={item.title}
@@ -37,10 +46,12 @@ function MessageListScreen() {
           image={item.image}
           onPress={() => console.log(item)}
           renderRightActions={(progress, drag, swipable) => {
-            console.log(
-              `prog: ${JSON.stringify(progress)} drag: ${JSON.stringify(drag)}`
+            return (
+              <ListItemDeleteAction
+                drag={drag}
+                onPress={() => deleteMsg(item)}
+              />
             );
-            return <DeleteWidget drag={drag} onPress={()=> deleteMsg(item)} />;
           }}
         />
       )}
@@ -48,6 +59,5 @@ function MessageListScreen() {
     ></FlatList>
   );
 }
-
 
 export default MessageListScreen;

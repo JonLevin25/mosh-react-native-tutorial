@@ -5,11 +5,13 @@ import { StyleSheet } from "react-native";
 import { MessageData } from "../data/MessageData";
 import { AppColors } from "../AppStyles";
 
+export type DeleteWidgetProps = {
+  drag: number;
+  onPress: () => void;
+};
 
-export type DeleteWidgetProps = { msg: MessageData; drag: number, onPress: () => void };
-
-export function DeleteWidget(props: DeleteWidgetProps) {
-  const { msg, drag, onPress } = props;
+export default function ListItemDeleteAction(props: DeleteWidgetProps) {
+  const { drag, onPress } = props;
   // const maxWidth = styles.deleteContainer.width;
   // const width = Math.min(Math.abs(drag), maxWidth);
   return (
@@ -20,7 +22,8 @@ export function DeleteWidget(props: DeleteWidgetProps) {
     >
       <MaterialCommunityIcons
         name="trash-can-outline"
-        style={styles.trashIcon} />
+        style={styles.trashIcon}
+      />
     </TouchableOpacity>
   );
 }

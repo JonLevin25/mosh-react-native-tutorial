@@ -3,5 +3,6 @@ import { ListingData } from "./ListingData";
 
 export type UserData = {
   name: string;
+  email: string;
   profileImage: ImageSourcePropType;
 };

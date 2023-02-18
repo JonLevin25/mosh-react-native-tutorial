@@ -5,6 +5,7 @@ import { UserData } from "./UserData";
 
 export const userMosh: UserData = {
   name: "Mosh Hamedani",
+  email: "programmingwithmosh@gmail.com",
   profileImage: require("../assets/exercise_2/mosh.jpg"),
 };
 
@@ -19,17 +20,17 @@ export const listingJacket: ListingData = {
   item: itemJacket,
 };
 
-export const messagesData: MessageData[] = [
+export const mockMessages: MessageData[] = [
   {
-    id: '1',
-    title: 'T1',
-    description: 'D1',
-    image: require('../assets/exercise_2/mosh.jpg'),
+    id: "1",
+    title: "T1",
+    description: "D1",
+    image: require("../assets/exercise_2/mosh.jpg"),
   },
   {
-    id: '2',
-    title: 'T2',
-    description: 'D2',
-    image: require('../assets/exercise_2/mosh.jpg'),
-  }
+    id: "2",
+    title: "T2",
+    description: "D2",
+    image: require("../assets/exercise_2/mosh.jpg"),
+  },
 ];

@@ -12,7 +12,7 @@ import { ListingData as ItemData, ListingData } from "../data/ListingData";
 import { UserData } from "../data/UserData";
 import { userMosh } from "../data/mockData";
 
-import ListItem from "../components/ListItem";
+import ListItem from "../components/ImageListItem";
 
 type ListingProps = {
   listing: ListingData;

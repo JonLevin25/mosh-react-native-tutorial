@@ -5,17 +5,19 @@ import {
   StyleSheet,
   SafeAreaView,
   View,
+  ViewStyle,
 } from "react-native";
 import Constants from "expo-constants";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 type ScreenContainerProps = {
   children?: React.ReactNode;
+  style?: ViewStyle;
 };
 
-function ScreenContainer({ children }: ScreenContainerProps) {
+function ScreenContainer({ children, style }: ScreenContainerProps) {
   return (
-    <SafeAreaView style={styles.screen}>
+    <SafeAreaView style={[styles.screen, style]}>
       <GestureHandlerRootView>{children}</GestureHandlerRootView>
     </SafeAreaView>
   );

@@ -8,6 +8,7 @@ import {
   ImageSourcePropType,
   TouchableHighlight,
   TouchableOpacity,
+  ViewStyle,
 } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import { AppColors } from "../AppStyles";
@@ -18,7 +19,8 @@ import AppText from "./AppText";
 type ListItemProps = {
   image: ImageSourcePropType;
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  style?: ViewStyle;
   onPress?: () => void;
   renderRightActions?:
     | ((
@@ -30,49 +32,66 @@ type ListItemProps = {
 };
 
 function ListItem<T>(props: ListItemProps) {
-  const { image, title, subtitle, renderRightActions } = props;
+  const {
+    image,
+    title,
+    subtitle,
+    renderRightActions,
+    style: userStyle,
+  } = props;
   const onPress = props.onPress;
-
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight
-        style={styles.container}
+        style={[styles.container, userStyle]}
         onPress={onPress}
         underlayColor={AppColors.light}
       >
-        <>
+        <View style={styles.contentContainer}>
           <Image style={styles.image} source={image} />
           <View style={styles.detailsContainer}>
             <AppText color="black" style={styles.title}>
               {title}
             </AppText>
-            <AppText color="gray" style={styles.title}>
+            <AppText color="gray" style={styles.subTitle}>
               {subtitle}
             </AppText>
           </View>
-        </>
+        </View>
       </TouchableHighlight>
     </Swipeable>
   );
 }
 
-const imageSize = 70;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    paddingHorizontal: 20,
+    padding: 20,
+    height: 90,
+    alignSelf: "center",
+    backgroundColor: AppColors.white,
+  },
+  contentContainer: {
+    height: 70,
+    width: "100%",
+    flexDirection: "row",
+    // backgroundColor: "blue",
   },
   image: {
-    height: imageSize,
-    width: imageSize,
-    borderRadius: imageSize * 0.5,
     marginRight: 10,
     resizeMode: "contain",
+    height: 70,
+    width: 70,
+    alignItems: "center",
+    borderRadius: 70 * 0.5,
   },
   detailsContainer: {
+    height: "100%",
     flexDirection: "column",
+    justifyContent: "center",
+    // backgroundColor: "green",
   },
-  title: { fontSize: 20, fontWeight: "500" },
-  subTitle: { fontSize: 18, fontWeight: "500" },
+  title: { fontSize: 18, fontWeight: "400" },
+  subTitle: { fontSize: 16, fontWeight: "400" },
 });
 export default ListItem;

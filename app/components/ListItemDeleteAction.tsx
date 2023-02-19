@@ -28,7 +28,7 @@ export default function ListItemDeleteAction(props: DeleteWidgetProps) {
   );
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   deleteContainer: {
     width: 59,
     height: "100%",

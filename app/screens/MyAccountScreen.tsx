@@ -1,52 +1,66 @@
-import { StyleSheet, View, Image, Text, SectionList } from "react-native";
+import { StyleSheet, View } from "react-native";
 import "../components/AppText";
-import { AppColors } from "../AppStyles";
 import React from "react";
-import ListItem from "../components/ListItem";
 import { userMosh } from "../data/mockData";
-import { FlatList } from "react-native-gesture-handler";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { MaterialCommunityIconType } from "../utils/typeHelpers";
-import RoundedIcon from "../components/RoundedIcon";
+import UserListItem from "../components/ListItems/UserListItem";
+import NavigationListItem from "../components/ListItems/NavigationListItem";
+import { FlatList } from "react-native-gesture-handler";
+import ListSeparator from "../components/ListSeparator";
+import { AppColorType } from "../AppStyles";
 type ButtonData = {
   title: string;
   icon: MaterialCommunityIconType;
+  color: AppColorType;
 };
 const buttonsData: ButtonData[] = [
-  { icon: "format-list-bulleted", title: "My Listings" },
-  { icon: "email", title: "My Messages" },
+  { icon: "format-list-bulleted", title: "My Listings", color: "primary" },
+  { icon: "email", title: "My Messages", color: "secondary" },
 ];
-const logoutButton = { icon: "logout", title: "Logout" };
+const logoutButton: ButtonData = {
+  icon: "logout",
+  title: "Logout",
+  color: "yellow",
+};
+
+function renderNavigationButton(data: ButtonData) {
+  return (
+    <NavigationListItem
+      text={data.title}
+      icon={data.icon}
+      backgroundColor={data.color}
+    />
+  );
+}
 
 function MyAccountScreen() {
   return (
     <View style={styles.container}>
-      <ListItem
-        style={styles.userCard}
-        Icon={
-          <RoundedIcon.FromImage size={70} content={userMosh.profileImage} />
-        }
-        Texts={[
-          <Text style={styles.title} key={userMosh.name}>
-            {userMosh.name}
-          </Text>,
-          <Text style={styles.subTitle} key={userMosh.email}>
-            {userMosh.email}
-          </Text>,
-        ]}
-      />
+      <UserListItem user={userMosh} style={styles.userListItem} />
+      {/* <UserListItem user={userMosh} /> */}
       <View style={{ height: 40 }} />
-      {/* <FlatList data={buttonsData}
-      renderItem={({item}) => } */}
+      <FlatList
+        style={styles.flatList}
+        data={buttonsData}
+        ItemSeparatorComponent={ListSeparator}
+        renderItem={({ item }) => renderNavigationButton(item)}
+      />
+      <View style={{ height: 20 }} />
+      {renderNavigationButton(logoutButton)}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  userCard: { marginBottom: 50 },
-  image: {},
-  title: { color: AppColors.black, fontSize: 18, fontWeight: "400" },
-  subTitle: { color: AppColors.gray, fontSize: 16, fontWeight: "400" },
+  container: {
+    // backgroundColor: "tomato",
+    alignItems: "center",
+    justifyContent: "center",
+    alignSelf: "center",
+    alignContent: "center",
+  },
+  userListItem: {},
+  flatList: { flexGrow: 0 },
 });
+
 export default MyAccountScreen;

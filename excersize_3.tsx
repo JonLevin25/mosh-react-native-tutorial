@@ -4,7 +4,7 @@ import { Text, StyleSheet, ListRenderItemInfo } from "react-native";
 import { AppColors } from "./app/AppStyles";
 import { listingJacket } from "./app/data/mockData";
 import ScreenContainer from "./app/screens/ScreenContainer";
-import ListItem from "./app/components/ListItem";
+import ListItem from "./app/components/ListItems/ListItem";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessageListScreen from "./app/screens/MessageListScreen";
 import MyAccountScreen from "./app/screens/MyAccountScreen";

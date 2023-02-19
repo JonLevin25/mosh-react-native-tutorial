@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Button, Animated } from "react-native";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/ListItems/ListItem";
 import ListSeparator from "../components/ListSeparator";
 import AppText from "../components/AppText";
 

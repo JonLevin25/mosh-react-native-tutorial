@@ -1,16 +1,30 @@
 import { StyleSheet, Text, TextProps } from "react-native";
 
 import React from "react";
-import { AppColors, appTextColor, TextStyles } from "../AppStyles";
+import {
+  AppColors,
+  AppColorType,
+  appTextColor,
+  TextStyles,
+} from "../AppStyles";
 
-function AppText(props: TextProps & { color?: keyof typeof AppColors }) {
-  const { style: userStyle, color, children, ...otherProps } = props;
+type AppTextProps = TextProps & {
+  text: string;
+  color?: AppColorType;
+};
+function AppText({
+  text,
+  style: userStyle,
+  color,
+  ...otherProps
+}: AppTextProps) {
   return (
     <Text
       {...otherProps}
+      key={text} // before otherprops, so key can be overriden
       style={[TextStyles.AppText, userStyle, appTextColor(color)]}
     >
-      {children}
+      {text}
     </Text>
   );
 }

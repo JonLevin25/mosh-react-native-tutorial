@@ -3,24 +3,17 @@ import {
   StyleSheet,
   Animated,
   View,
-  Image,
-  ImagePropsBase,
-  ImageSourcePropType,
   TouchableHighlight,
-  TouchableOpacity,
   ViewStyle,
+  StyleProp,
 } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
-import { AppColors } from "../AppStyles";
-import { UserData } from "../data/UserData";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-import AppText from "./AppText";
+import { AppColors } from "../../AppStyles";
 
 type ListItemProps = {
   Icon: React.ReactNode;
   Texts: React.ReactNode[];
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   onPress?: () => void;
   renderRightActions?:
     | ((
@@ -38,7 +31,7 @@ function ListItem<T>(props: ListItemProps) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight
-        style={[styles.container, userStyle]}
+        style={[styles.container, undefined]}
         onPress={onPress}
         underlayColor={AppColors.light}
       >
@@ -52,7 +45,7 @@ function ListItem<T>(props: ListItemProps) {
 }
 
 const getStyles = (isDoubleRow: boolean) => {
-  const padding = 20;
+  const padding = 10;
   return StyleSheet.create({
     container: {
       flexDirection: "row",
@@ -62,7 +55,6 @@ const getStyles = (isDoubleRow: boolean) => {
       backgroundColor: AppColors.white,
     },
     detailsContainer: {
-      height: "100%",
       flexDirection: "column",
       justifyContent: "center",
       // backgroundColor: "green",

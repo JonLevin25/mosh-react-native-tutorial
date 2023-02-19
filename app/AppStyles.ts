@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import App from "../excersize_1";
 
 export const AppColors = {
   black: "#000",
@@ -9,9 +10,11 @@ export const AppColors = {
   secondary: "#4ecdc4",
   white: "#fff",
   danger: "#ff5252",
+  yellow: "#ffe66d",
 };
 
-type MaybeAppColor = keyof typeof AppColors | undefined;
+export type AppColorType = keyof typeof AppColors;
+export type MaybeAppColor = AppColorType | undefined;
 
 export function appBackgroundColor(bgColor: MaybeAppColor) {
   if (bgColor == null) return {};

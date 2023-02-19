@@ -15,9 +15,20 @@ export const itemJacket: ItemData = createItemData(
   100
 );
 
+export const itemCouch: ItemData = createItemData(
+  require("../assets/exercise_2/couch.jpg"),
+  "Couch in great condition",
+  1000
+);
+
 export const listingJacket: ListingData = {
   user: userMosh,
   item: itemJacket,
+};
+
+export const listingCouch: ListingData = {
+  user: userMosh,
+  item: itemCouch,
 };
 
 export const mockMessages: MessageData[] = [

@@ -14,6 +14,7 @@ import MyAccountScreen from "./app/screens/MyAccountScreen";
 // data/config
 import { AppColors } from "./app/AppStyles";
 import { listingJacket } from "./app/data/mockData";
+import ListingsScreen from "./app/screens/ListingsScreen";
 
 export default function App() {
   return (
@@ -30,9 +31,10 @@ export default function App() {
       {/* <WelcomeScreen /> */}
       {/* <TestCardScreen /> */}
       {/* <ViewImageScreen /> */}
-      <ListingDetailsScreen listing={listingJacket} />
+      {/* <ListingDetailsScreen listing={listingJacket} /> */}
       {/* <MessageListScreen /> */}
       {/* <MyAccountScreen /> */}
+      <ListingsScreen />
     </ScreenContainer>
   );
 }

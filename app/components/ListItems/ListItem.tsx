@@ -6,23 +6,53 @@ import {
   TouchableHighlight,
   ViewStyle,
   StyleProp,
+  ImageSourcePropType,
 } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 import { AppColors } from "../../AppStyles";
+import AppText from "../AppText";
+import RoundedIcon from "../RoundedIcon";
+
+type RenderFuncType =
+  | ((
+      progressAnimatedValue: Animated.AnimatedInterpolation<number>,
+      dragAnimatedValue: Animated.AnimatedInterpolation<number>,
+      swipeable: Swipeable
+    ) => React.ReactNode)
+  | undefined;
+
+type ListItemPropsCommon = {
+  style?: StyleProp<ViewStyle>;
+  onPress?: () => void;
+  renderRightActions?: RenderFuncType;
+};
 
 type ListItemProps = {
   Icon: React.ReactNode;
   Texts: React.ReactNode | React.ReactNode[];
-  style?: StyleProp<ViewStyle>;
-  onPress?: () => void;
-  renderRightActions?:
-    | ((
-        progressAnimatedValue: Animated.AnimatedInterpolation<number>,
-        dragAnimatedValue: Animated.AnimatedInterpolation<number>,
-        swipeable: Swipeable
-      ) => React.ReactNode)
-    | undefined;
 };
+
+export function ImageListItem(
+  props: ListItemPropsCommon & {
+    title: string;
+    subTitle?: string;
+    image: ImageSourcePropType;
+    imageSize?: number;
+  }
+) {
+  const { title, subTitle, image, imageSize, ...otherProps } = props;
+
+  return (
+    <ListItem
+      Icon={<RoundedIcon.FromImage content={image} size={imageSize ?? 70} />}
+      Texts={[
+        <AppText color="black" text={title} />,
+        subTitle ? <AppText color="black" text={subTitle} /> : undefined,
+      ]}
+      {...otherProps}
+    />
+  );
+}
 
 function ListItem<T>(props: ListItemProps) {
   const { Icon, Texts, renderRightActions, onPress, style: userStyle } = props;

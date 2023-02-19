@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Button, Animated } from "react-native";
-import ListItem from "../components/ListItems/ListItem";
+import ListItem, { ImageListItem } from "../components/ListItems/ListItem";
 import ListSeparator from "../components/ListSeparator";
 import AppText from "../components/AppText";
 
@@ -40,9 +40,9 @@ function MessageListScreen() {
       refreshing={refreshing}
       onRefresh={refresh}
       renderItem={({ item }) => (
-        <ListItem
+        <ImageListItem
           title={item.title}
-          subtitle={item.description}
+          subTitle={item.description}
           image={item.image}
           onPress={() => console.log(item)}
           renderRightActions={(progress, drag, swipable) => {

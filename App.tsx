@@ -30,8 +30,8 @@ export default function App() {
       {/* <WelcomeScreen /> */}
       {/* <TestCardScreen /> */}
       {/* <ViewImageScreen /> */}
-      {/* <ListingDetailsScreen listing={listingJacket} /> */}
-      <MessageListScreen />
+      <ListingDetailsScreen listing={listingJacket} />
+      {/* <MessageListScreen /> */}
       {/* <MyAccountScreen /> */}
     </ScreenContainer>
   );

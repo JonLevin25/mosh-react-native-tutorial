@@ -1,12 +1,12 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Animated } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { StyleSheet } from "react-native";
 import { MessageData } from "../data/MessageData";
 import { AppColors } from "../AppStyles";
 
 export type DeleteWidgetProps = {
-  drag: number;
+  drag?: Animated.AnimatedInterpolation<number>;
   onPress: () => void;
 };
 

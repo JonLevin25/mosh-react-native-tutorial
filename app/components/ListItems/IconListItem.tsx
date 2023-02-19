@@ -6,23 +6,26 @@ import { appBackgroundColor, AppColors, AppColorType } from "../../AppStyles";
 import ListItem from "./ListItem";
 import RoundedIcon from "../RoundedIcon";
 import AppText from "../AppText";
+import { ListItemCommonProps } from "./ListItemCommonTypes";
 
-type NavigationListItemProps = {
+type NavigationListItemProps = ListItemCommonProps & {
   icon: MaterialCommunityIconType;
-  backgroundColor: AppColorType;
+  color: AppColorType;
   text: string;
+  size?: number;
 };
 
-function NavigationListItem(props: NavigationListItemProps) {
-  const { icon, text } = props;
+function IconListItem(props: NavigationListItemProps) {
+  const { icon, text, style: userStyle, size: userSize } = props;
   const styles = getStyles(props);
+  const size = userSize ?? 40;
   return (
     <ListItem
       style={styles.container}
       Icon={
         <RoundedIcon.FromMaterialIcon
-          size={40}
-          style={styles.image}
+          size={size}
+          style={[styles.image, userStyle]}
           content={icon}
         />
       }
@@ -37,8 +40,8 @@ function NavigationListItem(props: NavigationListItemProps) {
 const getStyles = (props: NavigationListItemProps) =>
   StyleSheet.create({
     container: {},
-    image: { backgroundColor: AppColors[props.backgroundColor] },
+    image: { backgroundColor: AppColors[props.color] },
     text: { color: AppColors.black, fontSize: 16, fontWeight: "500" },
   });
 
-export default NavigationListItem;
+export default IconListItem;

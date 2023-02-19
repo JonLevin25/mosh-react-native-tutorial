@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View, FlatList, Button, Animated } from "react-native";
-import ListItem, { ImageListItem } from "../components/ListItems/ListItem";
+import ListItem from "../components/ListItems/ListItem";
 import ListSeparator from "../components/ListSeparator";
 import AppText from "../components/AppText";
 
@@ -11,6 +11,7 @@ import { AppColors } from "../AppStyles";
 import AppButton from "../components/AppButton";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 import { useState } from "react";
+import ImageListItem from "../components/ListItems/ImageListItem";
 // flat list, uses messagesData
 
 function MessageListScreen() {

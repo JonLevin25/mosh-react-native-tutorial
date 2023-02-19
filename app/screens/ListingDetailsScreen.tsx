@@ -14,7 +14,7 @@ import { userMosh } from "../data/mockData";
 
 import ListItem from "../components/ListItems/ListItem";
 import RoundedIcon from "../components/RoundedIcon";
-import UserListItem from "../components/ListItems/UserListItem";
+import ImageListItem from "../components/ListItems/ImageListItem";
 
 type ListingProps = {
   listing: ListingData;
@@ -33,7 +33,11 @@ function ListingDetailsScreen({ listing: { item } }: ListingProps) {
         />
       </View>
       <View style={styles.userContainer}>
-        <UserListItem user={userMosh} subTitle="5 Listings" />
+        <ImageListItem
+          image={userMosh.profileImage}
+          title={userMosh.name}
+          subTitle="5 Listings"
+        />
       </View>
     </View>
   );

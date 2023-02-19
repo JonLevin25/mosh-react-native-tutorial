@@ -3,11 +3,11 @@ import "../components/AppText";
 import React from "react";
 import { userMosh } from "../data/mockData";
 import { MaterialCommunityIconType } from "../utils/typeHelpers";
-import UserListItem from "../components/ListItems/UserListItem";
-import NavigationListItem from "../components/ListItems/NavigationListItem";
 import { FlatList } from "react-native-gesture-handler";
 import ListSeparator from "../components/ListSeparator";
 import { AppColorType } from "../AppStyles";
+import ImageListItem from "../components/ListItems/ImageListItem";
+import IconListItem from "../components/ListItems/IconListItem";
 type ButtonData = {
   title: string;
   icon: MaterialCommunityIconType;
@@ -24,20 +24,15 @@ const logoutButton: ButtonData = {
 };
 
 function renderNavigationButton(data: ButtonData) {
-  return (
-    <NavigationListItem
-      text={data.title}
-      icon={data.icon}
-      backgroundColor={data.color}
-    />
-  );
+  return <IconListItem text={data.title} icon={data.icon} color={data.color} />;
 }
 
 function MyAccountScreen() {
   return (
     <View style={styles.container}>
-      <UserListItem
-        user={userMosh}
+      <ImageListItem
+        image={userMosh.profileImage}
+        title={userMosh.name}
         subTitle={userMosh.email}
         style={styles.userListItem}
       />

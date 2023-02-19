@@ -7,12 +7,13 @@ import { listingCouch, listingJacket } from "../data/mockData";
 
 const listings = [listingJacket, listingCouch];
 
-function ListingsScreen(props) {
+function ListingsScreen() {
   return (
     <View style={styles.container}>
       <FlatList
         data={listings}
-        renderItem={({ item }) => <Card item={item.item} />}
+        renderItem={({ item: listing }) => <Card item={listing.item} />}
+        keyExtractor={(listing) => listing.id}
         style={styles.listings}
       />
     </View>

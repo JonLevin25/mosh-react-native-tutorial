@@ -22,11 +22,13 @@ export const itemCouch: ItemData = createItemData(
 );
 
 export const listingJacket: ListingData = {
+  id: "jacket",
   user: userMosh,
   item: itemJacket,
 };
 
 export const listingCouch: ListingData = {
+  id: "couch",
   user: userMosh,
   item: itemCouch,
 };

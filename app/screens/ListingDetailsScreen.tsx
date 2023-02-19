@@ -13,29 +13,27 @@ import { UserData } from "../data/UserData";
 import { userMosh } from "../data/mockData";
 
 import ListItem from "../components/ListItems/ListItem";
+import RoundedIcon from "../components/RoundedIcon";
+import UserListItem from "../components/ListItems/UserListItem";
 
 type ListingProps = {
   listing: ListingData;
 };
 
-function ListingDetailsScreen({ listing: { user, item } }: ListingProps) {
+function ListingDetailsScreen({ listing: { item } }: ListingProps) {
   return (
     <View>
       <Image style={styles.image} source={item.image} />
       <View style={styles.detailsContainer}>
-        <AppText color="black" style={styles.title}>
-          {item.title}
-        </AppText>
-        <AppText color="secondary" style={styles.price}>
-          {item.getPriceStr()}
-        </AppText>
+        <AppText color="black" style={styles.title} text={item.title} />
+        <AppText
+          color="secondary"
+          style={styles.price}
+          text={item.getPriceStr()}
+        />
       </View>
       <View style={styles.userContainer}>
-        <ListItem
-          image={user.profileImage}
-          title={user.name}
-          subtitle="5 Listings"
-        />
+        <UserListItem user={userMosh} subTitle="5 Listings" />
       </View>
     </View>
   );

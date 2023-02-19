@@ -12,40 +12,42 @@ const onRegisterPress = () => {
   console.log("Register press!");
 };
 
-function WelcomeScreen(props: any) {
+function WelcomeScreen() {
   return (
-    <>
-      <ImageBackground
-        style={styles.background}
-        blurRadius={5}
-        source={require("../assets/exercise_1/background.jpg")}
-      >
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoImg}
-            source={require("../assets/exercise_1/logo-red.png")}
-          />
-          <AppText color="black" style={styles.taglineTxt}>
-            Sell what you don't need!
-          </AppText>
-        </View>
-        <View style={styles.buttonsContainer}>
-          <AppButton text="Login" color="primary" onPress={onLoginPress} />
-          <AppButton
-            text="Register"
-            color="secondary"
-            onPress={onRegisterPress}
-          />
-        </View>
-        <View style={styles.bottomBuffer} />
-      </ImageBackground>
-    </>
+    <ImageBackground
+      style={styles.background}
+      blurRadius={5}
+      source={require("../assets/exercise_1/background.jpg")}
+    >
+      <View style={styles.logoContainer}>
+        <Image
+          style={styles.logoImg}
+          source={require("../assets/exercise_1/logo-red.png")}
+        />
+        <AppText
+          color="black"
+          style={styles.taglineTxt}
+          text="Sell what you don't need!"
+        />
+      </View>
+      <View style={styles.buttonsContainer}>
+        <AppButton text="Login" color="primary" onPress={onLoginPress} />
+        <AppButton
+          text="Register"
+          color="secondary"
+          onPress={onRegisterPress}
+        />
+      </View>
+      <View style={styles.bottomBuffer} />
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
-    flex: 1,
+    width: "100%",
+    height: "100%",
+    // backgroundColor: "red",
     justifyContent: "flex-end",
     alignItems: "center",
   },

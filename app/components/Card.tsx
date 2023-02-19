@@ -21,12 +21,12 @@ function Card({ item }: CardProps) {
     <View style={styles.container}>
       <Image source={item.image} style={styles.image} />
       <View style={styles.textPane}>
-        <AppText color="black" style={styles.title}>
-          {item.title}
-        </AppText>
-        <AppText color="secondary" style={styles.subTitle}>
-          {item.getPriceStr()}
-        </AppText>
+        <AppText color="black" style={styles.title} text={item.title} />
+        <AppText
+          color="secondary"
+          style={styles.subTitle}
+          text={item.getPriceStr()}
+        />
       </View>
     </View>
   );

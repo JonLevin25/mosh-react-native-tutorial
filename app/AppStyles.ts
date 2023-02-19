@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import App from "../excersize_1";
 
 export const AppColors = {
   black: "#000",

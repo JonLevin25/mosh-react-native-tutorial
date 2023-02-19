@@ -8,10 +8,11 @@ import { UserData } from "../../data/UserData";
 
 type UserListItemProps = {
   user: UserData;
+  subTitle: string;
   style?: StyleProp<ViewStyle>;
 };
 
-function UserListItem({ user, style: userStyle }: UserListItemProps) {
+function UserListItem({ user, subTitle, style: userStyle }: UserListItemProps) {
   return (
     <ListItem
       style={[styles.container, userStyle]}
@@ -19,7 +20,7 @@ function UserListItem({ user, style: userStyle }: UserListItemProps) {
       Texts={[
         // func call means <Text> is returned, with key set
         AppText({ text: user.name, style: styles.title }),
-        AppText({ text: user.email, style: styles.subTitle }),
+        AppText({ text: subTitle, style: styles.subTitle }),
       ]}
     />
   );

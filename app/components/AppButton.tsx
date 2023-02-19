@@ -10,7 +10,7 @@ import AppText from "./AppText";
 
 function AppButton(
   props: TouchableHighlightProps & {
-    text?: string;
+    text: string;
     color?: keyof typeof AppColors;
   }
 ) {
@@ -20,7 +20,7 @@ function AppButton(
       {...otherProps}
       style={[styles.buttonContainer, userStyle, appBackgroundColor(color)]}
     >
-      <AppText style={styles.buttonText}>{text}</AppText>
+      <AppText style={styles.buttonText} text={text} />
     </TouchableHighlight>
   );
 }

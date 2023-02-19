@@ -12,7 +12,7 @@ import { AppColors } from "../../AppStyles";
 
 type ListItemProps = {
   Icon: React.ReactNode;
-  Texts: React.ReactNode[];
+  Texts: React.ReactNode | React.ReactNode[];
   style?: StyleProp<ViewStyle>;
   onPress?: () => void;
   renderRightActions?:

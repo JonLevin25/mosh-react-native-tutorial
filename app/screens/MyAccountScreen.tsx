@@ -36,7 +36,11 @@ function renderNavigationButton(data: ButtonData) {
 function MyAccountScreen() {
   return (
     <View style={styles.container}>
-      <UserListItem user={userMosh} style={styles.userListItem} />
+      <UserListItem
+        user={userMosh}
+        subTitle={userMosh.email}
+        style={styles.userListItem}
+      />
       {/* <UserListItem user={userMosh} /> */}
       <View style={{ height: 40 }} />
       <FlatList

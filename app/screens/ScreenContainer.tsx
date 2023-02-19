@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   screen: {
     paddingTop: Constants.statusBarHeight, // on ios - should be a no-op compared to regular SafeAreaView
     // backgroundColor: "red",
-    flex: 1,
   },
 });
 

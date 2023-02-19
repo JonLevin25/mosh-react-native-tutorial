@@ -12,8 +12,11 @@ export default function ViewImageScreen(props: any) {
         resizeMode="contain"
         source={require("../assets/exercise_1/chair.jpg")}
       />
-      <MaterialCommunityIcons name="close" style={ styles.closeBtn} />
-      <MaterialCommunityIcons name="trash-can-outline" style={styles.deleteBtn} />
+      <MaterialCommunityIcons name="close" style={styles.closeBtn} />
+      <MaterialCommunityIcons
+        name="trash-can-outline"
+        style={styles.deleteBtn}
+      />
     </View>
   );
 }
@@ -29,9 +32,10 @@ const genericStyles = StyleSheet.create({
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     backgroundColor: "#000",
     width: "100%",
+    height: "100%",
   },
   background: {
     // flex: 3,

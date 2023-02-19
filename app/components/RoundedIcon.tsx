@@ -14,26 +14,28 @@ import { AppColors } from "../AppStyles";
 
 namespace RoundedIcon {
   type RoundedImageProps = {
-    size: number;
+    size?: number;
     content: ImageSourcePropType;
     style?: StyleProp<ImageStyle>;
   };
 
   type RoundedMaterialIconProps = {
-    size: number;
+    size?: number;
     content: MaterialCommunityIconType;
     style?: StyleProp<TextStyle>;
   };
 
   export function FromImage(props: RoundedImageProps) {
-    const styles = getStyles(props.size);
+    const size = props.size ?? 70;
+    const styles = getStyles(size);
     return (
       <Image style={[styles.common, props.style]} source={props.content} />
     );
   }
 
   export function FromMaterialIcon(props: RoundedMaterialIconProps) {
-    const styles = getStyles(props.size);
+    const size = props.size ?? 40;
+    const styles = getStyles(size);
     return (
       <MaterialCommunityIcons
         style={[styles.common, styles.text, props.style]}

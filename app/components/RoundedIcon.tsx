@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { ImageSourcePropType } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { MaterialCommunityIconType } from "../utils/typeHelpers";
+import { IconsType } from "../utils/typeHelpers";
 import { AppColors } from "../AppStyles";
 
 namespace RoundedIcon {
@@ -21,7 +21,7 @@ namespace RoundedIcon {
 
   type RoundedMaterialIconProps = {
     size?: number;
-    content: MaterialCommunityIconType;
+    content: IconsType;
     style?: StyleProp<TextStyle>;
   };
 

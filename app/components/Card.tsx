@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { useDimensions } from "@react-native-community/hooks";
 import AppText from "./AppText";
-import { AppColors, TextStyles } from "../AppStyles";
+import { AppColors, defaultStyles } from "../AppStyles";
 import { ItemData } from "../data/ItemData";
 
 type CardProps = {

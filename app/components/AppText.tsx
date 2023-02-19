@@ -1,11 +1,10 @@
 import { StyleSheet, Text, TextProps } from "react-native";
 
 import React from "react";
-import {
+import defaultStyles, {
   AppColors,
   AppColorType,
   appTextColor,
-  TextStyles,
 } from "../AppStyles";
 
 type AppTextProps = TextProps & {
@@ -22,7 +21,7 @@ function AppText({
     <Text
       {...otherProps}
       key={text} // before otherprops, so key can be overriden
-      style={[TextStyles.AppText, userStyle, appTextColor(color)]}
+      style={[defaultStyles.text, appTextColor(color), userStyle]}
     >
       {text}
     </Text>

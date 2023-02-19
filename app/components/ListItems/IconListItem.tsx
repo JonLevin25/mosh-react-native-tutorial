@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import { MaterialCommunityIconType } from "../../utils/typeHelpers";
+import { IconsType } from "../../utils/typeHelpers";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { appBackgroundColor, AppColors, AppColorType } from "../../AppStyles";
 import ListItem from "./ListItem";
@@ -9,7 +9,7 @@ import AppText from "../AppText";
 import { ListItemCommonProps } from "./ListItemCommonTypes";
 
 type NavigationListItemProps = ListItemCommonProps & {
-  icon: MaterialCommunityIconType;
+  icon: IconsType;
   color: AppColorType;
   text: string;
   size?: number;

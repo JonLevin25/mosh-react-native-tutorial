@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
-import { AppColors, TextStyles } from "../AppStyles";
+import { AppColors, defaultStyles } from "../AppStyles";
 
 type ListSeparatorProps = {};
 function ListSeparator(props: ListSeparatorProps) {

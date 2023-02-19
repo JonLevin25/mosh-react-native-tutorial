@@ -1,13 +1,14 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export const AppColors = {
-  black: "#000",
   gray: "#6e6969",
-  light: "#f8f4f4",
-  medium: "#6e6969",
   primary: "#fc5c65",
   secondary: "#4ecdc4",
+  black: "#000",
   white: "#fff",
+  light: "#f8f4f4",
+  medium: "#6e6969",
+  dark: "0c0c0c",
   danger: "#ff5252",
   yellow: "#ffe66d",
 };
@@ -25,20 +26,16 @@ export function appTextColor(textColor: MaybeAppColor) {
   return { color: AppColors[textColor] };
 }
 
-export function resolveTextColor(bgColor: keyof typeof AppColors): {
-  color?: string;
-} {
-  if (bgColor && bgColor in AppColors) {
-    return { color: AppColors[bgColor] };
-  }
-
-  return {};
-}
-
-export const TextStyles = StyleSheet.create({
-  AppText: {
-    color: AppColors.white,
+const defaultStyles = StyleSheet.create({
+  text: {
+    color: AppColors.dark,
     fontSize: 18,
-    fontWeight: "700",
+    // fontWeight: "700",
+    fontFamily: Platform.select({
+      android: "Roboto",
+      ios: "Avenir",
+    }),
   },
 });
+
+export default defaultStyles;

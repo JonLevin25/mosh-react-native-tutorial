@@ -6,7 +6,7 @@ import {
   ImageSourcePropType,
 } from "react-native";
 import AppText from "../components/AppText";
-import { TextStyles, AppColors } from "../AppStyles";
+import { defaultStyles, AppColors } from "../AppStyles";
 import React from "react";
 import { ListingData as ItemData, ListingData } from "../data/ListingData";
 import { UserData } from "../data/UserData";

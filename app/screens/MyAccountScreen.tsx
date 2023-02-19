@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 import "../components/AppText";
 import React from "react";
 import { userMosh } from "../data/mockData";
-import { MaterialCommunityIconType } from "../utils/typeHelpers";
+import { IconsType } from "../utils/typeHelpers";
 import { FlatList } from "react-native-gesture-handler";
 import ListSeparator from "../components/ListSeparator";
 import { AppColorType } from "../AppStyles";
@@ -10,7 +10,7 @@ import ImageListItem from "../components/ListItems/ImageListItem";
 import IconListItem from "../components/ListItems/IconListItem";
 type ButtonData = {
   title: string;
-  icon: MaterialCommunityIconType;
+  icon: IconsType;
   color: AppColorType;
 };
 const buttonsData: ButtonData[] = [

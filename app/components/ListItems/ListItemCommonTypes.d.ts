@@ -1,4 +1,4 @@
-import { Animated, ViewStyle, StyleProp } from "react-native";
+import { Animated, ViewStyle, StyleProp, View } from "react-native";
 import { Swipeable } from "react-native-gesture-handler";
 
 type RenderFuncType =
@@ -10,12 +10,12 @@ type RenderFuncType =
   | undefined;
 
 export type ListItemCommonProps = {
-  style?: StyleProp<ViewStyle>;
   onPress?: () => void;
   renderRightActions?: RenderFuncType;
 };
 
 export type GenericListItemProps = ListItemCommonProps & {
   Icon: React.ReactNode;
+  style: StyleProp<ViewStyle>;
   Texts: React.ReactNode | React.ReactNode[];
 };

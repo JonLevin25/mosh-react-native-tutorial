@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import { IconsType } from "../../utils/typeHelpers";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { appBackgroundColor, AppColors, AppColorType } from "../../AppStyles";
@@ -8,24 +8,25 @@ import RoundedIcon from "../RoundedIcon";
 import AppText from "../AppText";
 import { ListItemCommonProps } from "./ListItemCommonTypes";
 
-type NavigationListItemProps = ListItemCommonProps & {
+type IconListItemProps = ListItemCommonProps & {
   icon: IconsType;
   color: AppColorType;
   text: string;
   size?: number;
+  containerStyle?: StyleProp<ViewStyle>;
 };
 
-function IconListItem(props: NavigationListItemProps) {
-  const { icon, text, style: userStyle, size: userSize } = props;
+function IconListItem(props: IconListItemProps) {
+  const { icon, text, containerStyle, size: userSize } = props;
   const styles = getStyles(props);
   const size = userSize ?? 40;
   return (
     <ListItem
-      style={styles.container}
+      style={[styles.container, containerStyle]}
       Icon={
         <RoundedIcon.FromMaterialIcon
           size={size}
-          style={[styles.image, userStyle]}
+          style={[styles.image]}
           content={icon}
         />
       }
@@ -37,7 +38,7 @@ function IconListItem(props: NavigationListItemProps) {
   );
 }
 
-const getStyles = (props: NavigationListItemProps) =>
+const getStyles = (props: IconListItemProps) =>
   StyleSheet.create({
     container: {},
     image: { backgroundColor: AppColors[props.color] },

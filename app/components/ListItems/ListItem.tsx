@@ -13,7 +13,7 @@ function ListItem<T>(props: GenericListItemProps) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight
-        style={[styles.container, undefined]}
+        style={[styles.container, userStyle]}
         onPress={onPress}
         underlayColor={AppColors.light}
       >
